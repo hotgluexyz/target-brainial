@@ -40,12 +40,7 @@ Pass the token as the `access_token` field in your config. The token is sent via
 
 | Stream    | Description                                                                   |
 |-----------|-------------------------------------------------------------------------------|
-| `tenders` | Creates or updates Tender records in Brainial. If `tender_id` is present in the record, the tender is updated; otherwise a new tender is created with a generated UUID. |
-
-### Upsert behaviour
-
-- **Create** (`POST /tenders/`): triggered when the record has no `tender_id`. A UUID is generated automatically as the new tender's ID.
-- **Update** (`PUT /tenders/{tender_id}`): triggered when the record contains a `tender_id` field.
+| `tenders` | Creates or updates Tender records in Brainial via `POST /tenders/`. If `new_tender_id` is present in the record, the API upserts against that ID; otherwise a UUID is generated automatically. |
 
 The target expects records that are already mapped to the Brainial Tender API field names (no additional field mapping is applied).
 
